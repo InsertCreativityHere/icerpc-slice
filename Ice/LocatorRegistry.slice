@@ -7,6 +7,7 @@ module Ice
 
 /// This exception is thrown when a server application tries to register server addresses for an object adapter that is
 /// already active.
+/// Something something.
 exception AdapterAlreadyActiveException {}
 
 /// This exception is thrown when the provided replica group is invalid.
