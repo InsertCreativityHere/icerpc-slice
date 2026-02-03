@@ -21,8 +21,6 @@ struct Module {
 struct Struct {
     entityInfo: EntityInfo
     fields: Sequence<Field>
-    isCompact: bool
-    isSlice1Only: bool
 }
 
 struct Class {
@@ -53,9 +51,7 @@ struct Interface {
 struct Operation {
     entityInfo: EntityInfo
     parameters: Sequence<Field>
-    hasStreamedParameter: bool
     returnType: Sequence<Field>
-    hasStreamedReturn: bool
     exceptionSpecification: Sequence<EntityId>
     isIdempotent: bool
 }
@@ -63,15 +59,12 @@ struct Operation {
 struct Enum {
     entityInfo: EntityInfo
     enumerators: Sequence<Enumerator>
-    underlying: Primitive?
-    isCompact: bool
     isUnchecked: bool
 }
 
 struct Enumerator {
     entityInfo: EntityInfo
     value: Discriminant
-    fields: Sequence<Field>?
 }
 
 struct Discriminant {
@@ -91,7 +84,6 @@ struct TypeAlias {
 enum AnonymousType {
     SequenceType(v: SequenceType)
     DictionaryType(v: DictionaryType)
-    ResultType(v: ResultType)
 }
 
 struct SequenceType {
@@ -103,25 +95,12 @@ struct DictionaryType {
     valueType: TypeRef
 }
 
-struct ResultType {
-    successType: TypeRef
-    failureType: TypeRef
-}
-
 unchecked enum Primitive : uint8 {
     Bool
-    Int8
     UInt8
     Int16
-    UInt16
     Int32
-    UInt32
-    VarInt32
-    VarUInt32
     Int64
-    UInt64
-    VarInt62
-    VarUInt62
     Float32
     Float64
     String
