@@ -22,20 +22,6 @@ struct Struct {
     entityInfo: EntityInfo
     fields: Sequence<Field>
     isCompact: bool
-    isSlice1Only: bool
-}
-
-struct Class {
-    entityInfo: EntityInfo
-    fields: Sequence<Field>
-    compactId: int32?
-    base: EntityId?
-}
-
-struct Exception {
-    entityInfo: EntityInfo
-    fields: Sequence<Field>
-    base: EntityId?
 }
 
 struct Field {
@@ -56,7 +42,6 @@ struct Operation {
     hasStreamedParameter: bool
     returnType: Sequence<Field>
     hasStreamedReturn: bool
-    exceptionSpecification: Sequence<EntityId>
     isIdempotent: bool
 }
 
@@ -125,7 +110,6 @@ unchecked enum Primitive : uint8 {
     Float32
     Float64
     String
-    \AnyClass
 }
 
 struct TypeRef {

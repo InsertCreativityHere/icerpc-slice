@@ -4,14 +4,8 @@
 module Compiler
 
 struct DocComment {
-    overview: Message
-    \throws: Sequence<ThrowsTag>
+    overview: Sequence<MessageComponent>
     see: Sequence<SeeTag>
-}
-
-struct ThrowsTag {
-    thrownType: EntityId
-    message: Message
 }
 
 struct SeeTag {
@@ -26,5 +20,3 @@ enum MessageComponent {
     Text(v: string)
     Link(v: LinkTag)
 }
-
-typealias Message = Sequence<MessageComponent>
